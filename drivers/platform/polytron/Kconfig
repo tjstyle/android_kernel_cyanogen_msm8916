@@ -1,0 +1,24 @@
+# Polytron configuration options
+
+menu "Polytron board selection"
+
+config MACH_POLYTRON
+	bool "Polytron device"
+	depends on ARCH_MSM
+	help
+	  Support for Polytron products
+
+config MACH_POLYTRON_MSM8916
+	bool "Polytron MSM8916"
+	depends on ARCH_MSM8916
+	select MACH_POLYTRON
+	help
+	  Support for MSM8916 Polytron variants
+
+config MACH_POLYTRON_G450
+	bool "G450 board"
+	select MACH_POLYTRON_MSM8916
+	help
+	  Support for Polytron G450 variant
+
+endmenu

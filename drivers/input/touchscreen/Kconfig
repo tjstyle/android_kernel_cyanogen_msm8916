@@ -988,6 +988,14 @@ config TOUCHSCREEN_FT5X06
          To compile this driver as a module, choose M here: the
          module will be called ft5x06_ts.
 
+config TOUCHSCREEN_FT6X06
+       tristate "FocalTech touchscreens"
+       depends on I2C
+       help
+         Say Y here if you have a ft6X06 touchscreen.
+	 Ft6x06 controllers are multi touch controllers which can
+	 report 5 touches at a time.
+
 config TOUCHSCREEN_MSTAR21XX
        tristate "mstar touchscreens"
        depends on I2C

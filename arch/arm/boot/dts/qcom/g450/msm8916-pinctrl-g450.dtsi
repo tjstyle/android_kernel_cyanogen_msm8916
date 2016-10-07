@@ -1,0 +1,79 @@
+/* Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+#include "../msm8916-pinctrl.dtsi"
+
+&tlmm_pinmux {
+
+		spi0_cs0_active {
+			/* CS */
+			qcom,pins = <&gp 16>;
+			qcom,num-grp-pins = <1>;
+			qcom,pin-func = <1>;
+			label = "spi0-cs0-active";
+			spi0_cs0_active: cs0_active {
+				drive-strength = <2>;
+				bias-disable = <0>;
+			};
+		};
+
+		spi0_cs0_suspend {
+			/* CS */
+			qcom,pins = <&gp 16>;
+			qcom,num-grp-pins = <1>;
+			qcom,pin-func = <0>;
+			label = "spi0-cs0-suspend";
+			spi0_cs0_sleep: cs0_sleep {
+				drive-strength = <2>;
+				bias-disable = <0>;
+			};
+		};
+
+		pmx_mdss: pmx_mdss {
+			label = "mdss-pins";
+			qcom,pin-func = <0>;
+			mdss_dsi_active: active {
+				drive-strength = <8>; /* 8 mA */
+				bias-disable = <0>; /* no pull */
+			};
+			mdss_dsi_suspend: suspend {
+				drive-strength = <2>; /* 2 mA */
+				bias-pull-down; /* pull down */
+			};
+		};
+
+		tpiu_seta_3 {
+			qcom,pins = <&gp 16>;
+			qcom,num-grp-pins = <1>;
+			qcom,pin-func = <3>;
+			label = "tpiu-seta-3";
+			seta_3: seta {
+				drive-strength = <16>;
+				bias-disable;
+			};
+		};
+
+		tlmm_gpio_key {
+			qcom,pins = <&gp 107>, <&gp 109>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <2>;
+			label = "tlmm_gpio_key";
+			gpio_key_active: gpio_key_active {
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+			gpio_key_suspend: gpio_key_suspend {
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+		};
+
+};
